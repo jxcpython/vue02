@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <comm></comm>
+
+
+</div>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="js/vue.min.js"></script>
+<script>
+    let com = {
+        template:`
+            <div>组件第一个</div>
+        `,
+    }
+    Vue.component("comm",com)
+    new Vue({
+        el: "#app",
+        data: {},
+
+
+    })
+</script>
+</body>
+</html>

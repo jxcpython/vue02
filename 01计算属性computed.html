@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <p @click="new1">{{ num }}</p>
+    <P>个位：{{parseInt(num/10)}}</P>
+    <P>十位：{{num%10}}</P>
+    <hr>
+    十位：<input type="number" v-model="shi" max="9" min="o">
+    个位：<input type="number" v-model="ge" max="9" min="o">
+<!--    <hr>-->
+<!--    结果：<b>{{shi*10 + +ge}}</b>-->
+<!--    计算结果：<b>{{result}}</b>-->
+</div>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            num:88,
+            shi:"",
+            ge:"",
+        },
+        methods:{
+            new1(){
+                this.num = this.num - 3;
+                if (this.num<=0){
+                    this.num=99
+                }
+            },
+        },
+        // computed: {
+        //     // 定义方法属性
+        //     result() {
+        //         console.log("110")
+        //         console.log(this.shi);
+        //         console.log(this.ge);
+        //         return this.shi * 10 + +this.ge;
+        //     }
+        // },
+
+        watch:{
+            num(){
+                this.shi=parseInt(this.num/10);
+
+                this.ge=parseInt(this.num%10);
+            }
+        },
+    })
+</script>
+</body>
+</html>

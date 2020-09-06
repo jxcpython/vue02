@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    这是父组件中的username：{{username}}
+    <hr>
+    <app @btn="clickMe"></app>
+
+</div>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="js/vue.min.js"></script>
+<script>
+    let app ={
+        template:`
+            <div>
+                <button @click="clickBtn">案件</button>
+            </div>
+        `,
+        methods:{
+            clickBtn(){
+                this.$emit("btn","靳薛城")
+            },
+        }
+
+    }
+    new Vue({
+        el: "#app",
+        data: {
+            username:"小明",
+        },
+        components:{
+            app:app
+        },
+        methods: {
+            clickMe(username) {
+                console.log(username);
+                this.username = username;
+            }
+        }
+    })
+</script>
+</body>
+</html>
